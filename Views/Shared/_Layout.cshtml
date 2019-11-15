@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
             <div class="container-fluid">
-                <a href="#">
+                <a href="#!/home">
                     <img src="~/media/bilect_logo.png" class="img-fluid" alt="Bilect_logotype" title="Bilect_logotype" width="100" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -33,10 +33,12 @@
                                 </li>
                                 <li class="nav-item" ng-mouseover="showLinkTxt($event)" ng-mouseleave="hideLinkText($event)">
                                     <span class="link-title">Nyheter</span>
-                                    <img src="~/media/navigation-icons/news.png" class="img-fluid" />
+                                    <a href="#!/news">
+                                        <img src="~/media/navigation-icons/news.png" class="img-fluid" />
+                                    </a>
                                 </li>
                                 <li class="nav-item" ng-mouseover="showLinkTxt($event)" ng-mouseleave="hideLinkText($event)">
-                                    <span class="link-title">Nyheter</span>
+                                    <span class="link-title">Mina anonser</span>
                                     <img src="~/media/navigation-icons/my-articles.png" class="img-fluid" />
                                 </li>
                                 <li class="nav-item" ng-mouseover="showLinkTxt($event)" ng-mouseleave="hideLinkText($event)">
@@ -51,38 +53,31 @@
         </nav>
     </header>
 
-    <!--Search-box-->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <form class="form-inline">
-                    <input class="search-box" type="search" placeholder="Sök..." aria-label="Search"
-                           ng-click="showAdvanBtn($event)">
-                </form>
-            </div>
-            <div class="col-md-12">
-                <button id="advance-search-btn">Avancerad sökning</button>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container-fluid p-0 m-0">
+    <div class="container-fluid p-0 m-0" ng-app="app" ng-view>
         @RenderBody()
     </div>
-
 
     <!--JQUERY & Bootstrap-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!--SweetAlert 2-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+    
+
     <!--AngularJS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-route.min.js"></script>
     <script src="~/js/main.js"></script>
-
+    
     <!--AngularJS Controllers-->
     <script src="~/js/controllers/mainCtrl.js"></script>
+    <script src="~/js/controllers/newsCtrls/newsCtrl.js"></script>
+    <script src="~/js/controllers/newsCtrls/addNewsCtrl.js"></script>
+
+    <!--AngularJS Services-->
+    <script src="~/js/services/newsService.js"></script>
+
 
     @RenderSection("Scripts", required: false)
 </body>

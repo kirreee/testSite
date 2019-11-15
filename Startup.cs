@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Bilect.DAL.Models;
 using Bilect.Services.Helpers;
+using Bilect.Services.Interfaces;
+using Bilect.Services.Services;
 
 namespace Bilect
 {
@@ -51,6 +53,10 @@ namespace Bilect
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
             services.AddMvc();
+
+            //Services
+            services.AddTransient<INewsService, NewsService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
