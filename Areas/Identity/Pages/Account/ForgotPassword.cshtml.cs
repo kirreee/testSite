@@ -30,8 +30,8 @@ namespace Bilect.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "E-post måste fyllas i")]
+            [EmailAddress(ErrorMessage = "E-postadressen är inte giltig")]
             public string Email { get; set; }
         }
 

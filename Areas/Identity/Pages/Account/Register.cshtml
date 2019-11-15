@@ -9,13 +9,12 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-3">
+        <div class="col-md-4 offset-4">
             <div class="form-holder">
                 <h1 class="text-uppercase form-title text-center pb-2 pt-2">Registrera dig</h1>
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                    <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
-                        <input asp-for="Input.Name" class="form-control" placeholder="Namn"  />
+                        <input asp-for="Input.Name" class="form-control" placeholder="Fullständiga namn"  />
                         <span asp-validation-for="Input.Name" class="text-danger"></span>
                     </div>
                     <div class="form-group">

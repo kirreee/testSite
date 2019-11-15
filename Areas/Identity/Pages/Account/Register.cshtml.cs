@@ -47,26 +47,36 @@ namespace Bilect.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
+            [EmailAddress(ErrorMessage = "E-postadressen är inte giltig")]
             [Display(Name = "Email")]
             public string Email { get; set; }
-            
+
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "Lösenordet måste innehålla minst 6 tecken", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password", ErrorMessage = "Lösenordet stämmer inte överens")]
             public string ConfirmPassword { get; set; }
-
+            [Required(ErrorMessage = "Namn måste fyllas i")]
             public string Name { get; set; }
+           
+            [Required(ErrorMessage = "Telefonnummer måste fyllas i")]
+            [Phone(ErrorMessage = "Telfonummret är inte giltig")]
             public string PhoneNumber { get; set; }
+          
+            [Required(ErrorMessage = "Adress måste fyllas i")]
             public string Address { get; set; }
+          
+            [Required(ErrorMessage = "Postnummer måste fyllas i")]
             public string ZipCode { get; set; }
+           
+            [Required(ErrorMessage = "Stad måste fyllas i")]
             public string City { get; set; }
+          
             public string Description { get; set; }
         }
 

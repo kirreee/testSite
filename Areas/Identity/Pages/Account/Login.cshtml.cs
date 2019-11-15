@@ -45,11 +45,11 @@ namespace Bilect.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "E-post måste fyllas i")]
+            [EmailAddress(ErrorMessage = "E-postadressen är inte giltig")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Lösenordet måste fyllas i")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 

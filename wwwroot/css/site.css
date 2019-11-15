@@ -64,8 +64,8 @@ html {
 
 body{
     min-height:100vh;
+    background-image:url(/media/bilect_bgGrey.png);
 }
-
 
 .footer {
     position: absolute;
@@ -129,3 +129,4 @@ body{
     font-size: 13px;
     font-weight: 400;
 }
+
