@@ -38,6 +38,28 @@ body {
 }
 
 
+/* Navigationbar & navigationbar-links
+-------------------------------------------------- */
+.nav-item {
+    padding: 0px 10px;
+}
+
+    .nav-item .link-title {
+        opacity: 0.9;
+        color: #273237;
+        font-family: Lato;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: none;
+    }
+
+    .nav-item img {
+        cursor:pointer;
+    }
+
+
+
 /* Search-box
 -------------------------------------------------- */
 .search-box {

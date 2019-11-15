@@ -9,4 +9,14 @@
         $(event.currentTarget).addClass('search-box-big');
     };
 
+    //Show link title on mouseover
+    $scope.showLinkTxt = function (event) {
+        $(event.currentTarget.firstChild).siblings('.link-title').fadeIn(500);
+    };
+
+    //Hide link title on mouseleave
+    $scope.hideLinkText = function (event) {
+        $(event.currentTarget.firstChild).siblings('.link-title').hide();
+    };
+
 }]);
