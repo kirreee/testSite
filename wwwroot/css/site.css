@@ -1,0 +1,131 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+    min-height: 100vh;
+}
+
+body{
+    min-height:100vh;
+}
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+
+/* Form & inputs styles
+-------------------------------------------------- */
+.form-holder {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.03);
+    border-radius: 27px;
+    background-color: #dbe3e8;
+    padding:1rem;
+}
+
+.form-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.form-control {
+    border-radius: 20px !important;
+    background-color: rgba(39, 50, 55, 0.05) !important;
+}
+
+    .form-control::placeholder {
+        opacity: 0.2;
+        color: #000000;
+        font-family: Lato;
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+.form-sumbit-btn {
+    width: 100%;
+    height: 40px;
+    box-shadow: 0 3px 10px rgba(245, 44, 44, 0.3);
+    border-radius: 30px;
+    border: none !important;
+    background-image: linear-gradient(93deg, #f5842c 0%, #f45983 100%);
+    color: #ffffff;
+    font-family: Lato;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+    .form-sumbit-btn:hover {
+        box-shadow: 0 3px 20px rgba(245, 44, 44, 0.3);
+    }
+
+#rememberMe_text {
+    color: #000000;
+    font-family: Lato;
+    font-size: 13px;
+    font-weight: 400;
+}

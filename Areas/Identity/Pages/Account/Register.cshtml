@@ -1,0 +1,63 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="form-holder">
+                <h1 class="text-uppercase form-title text-center pb-2 pt-2">Registrera dig</h1>
+                <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <input asp-for="Input.Name" class="form-control" placeholder="Namn"  />
+                        <span asp-validation-for="Input.Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.Email" class="form-control" placeholder="Epost" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Telefon" />
+                        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.Address" class="form-control" placeholder="Adress" />
+                        <span asp-validation-for="Input.Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.ZipCode" class="form-control" placeholder="Postnummer" />
+                        <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.City" class="form-control" placeholder="Stad" />
+                        <span asp-validation-for="Input.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea asp-for="Input.Description" class="form-control" placeholder="Beskrivning"></textarea>
+                        <span asp-validation-for="Input.Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.Password" class="form-control" placeholder="Lösenord" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Repetera lösenord" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="form-sumbit-btn text-uppercase">Skapa konto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

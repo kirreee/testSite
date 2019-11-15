@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Kribb4\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Kribb4\\.nuget\\packages"
+    ]
+  }
+}
