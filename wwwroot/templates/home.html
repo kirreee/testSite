@@ -8,7 +8,66 @@
             </form>
         </div>
         <div class="col-md-12">
-            <button id="advance-search-btn">Avancerad sökning</button>
+            <button id="advance-search-btn" ng-click="openAdvanceSearchSettings()">Avancerad sökning</button>
+        </div>
+    </div>
+</div>
+
+
+<!--Advance search settings-->
+<div class="container" id="advanceSearch-content">
+    <p id="carPicker-title">Fordonstyp</p>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div id="carType-pickerHolder">
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/cabrio-car.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/car-black-side-view-pointing-left.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/car-city-model.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/car-suv.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/coupe-car.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/mini-van.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/minivan-car.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/old-pickup.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/sedan-car-model.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+                <div class="pl-2 pr-2">
+                    <img src="/media/cartypes-icons/supercar.png" class="img-fluid" ng-click="setActiveCarType($event)" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="types">
+                <div class="shape" id="filter-year-shape"></div>
+                <p class="sliderPicker-title">Årsmodell</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-3">
+
         </div>
     </div>
 </div>
