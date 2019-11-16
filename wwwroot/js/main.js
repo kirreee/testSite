@@ -19,6 +19,10 @@ app.config(["$routeProvider",
             when("/addNews", {
                 templateUrl: "/templates/addNews.html",
                 controller: "addNewsCtrl"
+            }).
+            when("/editNews/:id", {
+                templateUrl: "/templates/editNews.html",
+                controller: "editNewsCtrl"
             })
             .otherwise({
                 redirectTo: "/home"

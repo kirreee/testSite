@@ -1,0 +1,33 @@
+﻿
+.form-holder button {
+    display: block;
+    margin: auto;
+}
+
+
+/* Image upload styles
+-------------------------------------------------- */
+.image-uploadBorder {
+    display: block;
+    margin: auto;
+    width: 210px;
+    height: 150px;
+    border-radius: 20px;
+    border: 3px solid #f5842c;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    cursor: pointer;
+}
+
+    .image-uploadBorder p {
+        text-align: center;
+        color: #000000;
+        font-family: Lato;
+        font-size: 15px;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 150px;
+    }
+
+

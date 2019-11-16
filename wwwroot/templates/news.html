@@ -1,5 +1,89 @@
 ﻿
 
-<div class="container bg-danger">
-    <h1>Hejsan</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a href="#!/addNews">
+                <button class="form-sumbit-btn w-25">Skapa nyhet</button>
+            </a>
+        </div>
+    </div>
+    <div class=" diary-contentHolder">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 ng-if="isNewsEmpty">Finns inga nyheter uppladdade</h1>
+            </div>
+            <div class="col-md-6 text-center pt-3 pb-3" ng-repeat="model in news">
+                <div class="content-holder">
+                    <img src="/media/test-bilder/test.png" class="img-fluid news-image" alt="Image for: {{model.title}}" />
+                    <small>{{model.creationDate | date: 'yyyy-MM-dd'}}</small>
+                    <div class="title-holder mt-3">
+                        <p class="title">{{model.title}}</p>
+                    </div>
+                    <div class="desc-holder mt-3">
+                        <p>{{model.description}}</p>
+                        <img src="/media/delete-icon.png" class="img-fluid removeIcon" width="20" ng-click="removeNews(model.id)" />
+                        <img src="/media/pencil-edit-button.png" class="img-fluid removeIcon ml-2" width="18" ng-click="editNews(model.id)" />
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<style>
+    .content-holder {
+        width: 450px;
+        display: block;
+        margin: auto;
+    }
+
+    .diary-contentHolder {
+        padding: 1em;
+        box-shadow: 0 3px 50px rgba(0, 0, 0, 0.06);
+        background-color: #dbe3e8;
+        min-height: calc(100vh - 115px);
+        margin-top: 50px;
+        text-align: center;
+    }
+
+        .news-img {
+            display: block;
+            margin: auto;
+            max-width: 350px;
+            min-width: 100%;
+            padding: .5em;
+        }
+
+        .diary-contentHolder small {
+            opacity: 0.4;
+            color: #070707;
+            font-family: Lato;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+    .title-holder .title {
+        color: #292c2f;
+        font-family: Lato;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .desc-holder p {
+        opacity: 0.4;
+        color: #070707;
+        font-family: Lato;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .removeIcon{
+        cursor:pointer;
+    }
+
+</style>

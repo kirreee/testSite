@@ -4,14 +4,14 @@
     <div class="col-md-6 offset-3">
         <div class="form-holder">
             <div class="pb-2 pt-2">
-                <h4 class="text-center">Skapa nyhet</h4>
+                <h4 class="text-center">Updatera nyhet</h4>
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" placeholder="Title" ng-model="title" />
+                <input class="form-control" type="text" placeholder="Title" ng-model="news.title" />
                 <label class="ml-2" ng-if="isTitleEmpty"><small class="text-danger">Title måste fyllas i</small></label>
             </div>
             <div class="form-group">
-                <textarea rows="5" class="form-control" placeholder="Beskrivning" ng-model="description"></textarea>
+                <textarea rows="5" class="form-control" placeholder="Beskrivning" ng-model="news.description"></textarea>
                 <label class="ml-2" ng-if="isDescriptionEmpty"><small class="text-danger">Beskrivning måste fyllas i</small></label>
             </div>
             <div class="form-group">
@@ -20,9 +20,7 @@
                     <p>Ladda upp en bild</p>
                 </div>
             </div>
-            <button class="form-sumbit-btn w-75" ng-click="addNews()">Skapa nyhet</button>
+            <button class="form-sumbit-btn w-75" ng-click="updateNews()">Skapa nyhet</button>
         </div>
     </div>
 </div>
-
-
