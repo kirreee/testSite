@@ -55,6 +55,7 @@ namespace Bilect
             services.AddMvc();
 
             //Services
+            services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<INewsService, NewsService>();
 
         }

@@ -51,7 +51,6 @@
         targetCarTypeEl.removeClass('active-carType').addClass('inActive-carType');
     };
 
-
     //Year picker slider
     $("#filter-year-shape").roundSlider({
         handleShape: "dot",

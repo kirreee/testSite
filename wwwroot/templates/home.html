@@ -118,7 +118,7 @@
 
 
 
-<div class="container" id="list-of-cars">
+<div class="container" id="list-of-cars" ng-controller="articleCtrl">
     <div class="row" id="hexagon-grid-holder">
         <div class="col-md-12">
             <!--<div id="noItemFound-holder" ng-if="noItemFound">
@@ -127,72 +127,7 @@
                 </h1>
             </div>-->
             <ul id="hexGrid" ng-mouseleave="unfocusHexaong()">
-                <li class="hex car-title" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
-                    <div class="hexIn">
-                        <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
-                    </div>
-                </li>
-                <li class="hex car-title" id="hex-27" ng-mousemove="focusHexagon($event)">
+                <li class="hex car-title" ng-repeat="article in articles" ng-mousemove="focusHexagon($event)">
                     <div class="hexIn">
                         <img src="/media/test-bilder/blue_car.jpg" class="img-hex" />
                     </div>

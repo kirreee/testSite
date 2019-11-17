@@ -63,7 +63,7 @@
             }
         } finally {
             Swal.fire({
-                'title': 'Nyhet har blivit skapad.',
+                'title': 'Nyhet blev inte skapad.',
                 'text': errorMsg,
                 'type': 'warning'
             }).then(function () {

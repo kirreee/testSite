@@ -30,7 +30,7 @@
                         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item" ng-mouseover="showLinkTxt($event)" ng-mouseleave="hideLinkText($event)">
-                                    <span class="link-title">Min profil</span>
+                                    <span class="link-title">Skapa anons</span>
                                     <img src="~/media/navigation-icons/add-article.png" class="img-fluid" />
                                 </li>
                                 <li class="nav-item" ng-mouseover="showLinkTxt($event)" ng-mouseleave="hideLinkText($event)">
@@ -76,11 +76,14 @@
 
     <!--AngularJS Controllers-->
     <script src="~/js/controllers/mainCtrl.js"></script>
+    <script src="~/js/controllers/articleCtrls/articleCtrl.js"></script>
+    <script src="~/js/controllers/articleCtrls/addArticleCtrl.js"></script>
     <script src="~/js/controllers/newsCtrls/newsCtrl.js"></script>
     <script src="~/js/controllers/newsCtrls/addNewsCtrl.js"></script>
     <script src="~/js/controllers/newsCtrls/editNewsCtrl.js"></script>
 
     <!--AngularJS Services-->
+    <script src="~/js/services/articleService.js"></script>
     <script src="~/js/services/newsService.js"></script>
 
 
