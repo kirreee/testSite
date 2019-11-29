@@ -39,5 +39,54 @@
         });
     };
 
+    //Get my articles
+    this.getMyArticles = function (articles) {
+        $http({
+            method: 'GET',
+            url: baseUrl + 'GetMyArticles'
+        }).then(function successCallback(response) {
+            articles(response.data);
+        }, function errorCallback(response) {
+            console.log('Response:', response.status);
+        });
+    };
+
+
+    //Get article by Id
+    this.getArticleById = function (articleId, articleData) {
+        $http({
+            method: 'GET',
+            url: baseUrl + 'GetArticleById/' + articleId
+        }).then(function successCallback(response) {
+            articleData(response.data);
+        }, function errorCallback(response) {
+            console.log('Response:', response.status);
+        });
+    };
+
+    //Update article
+    this.updateArticle = function (articleId, articleModel, result) {
+        $http({
+            method: 'POST',
+            url: baseUrl + 'UpdateArticle/' + articleId,
+            data: articleModel
+        }).then(function successCallback(response) {
+            result(response.data);
+        }, function errorCallback(response) {
+            console.log('Response:', response.status);
+        });
+    };
+
+    //Delete article
+    this.deleteArticle = function (articleId, result) {
+        $http({
+            method: 'DELETE',
+            url: baseUrl + 'DeleteArticle/' + articleId
+        }).then(function successCallback(response) {
+            result(response.data);
+        }, function errorCallback(response) {
+            console.log('Response:', response.status);
+        });
+    };
 
 });

@@ -1,0 +1,70 @@
+﻿
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Mina annonser</h1>
+            <hr />
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-12" ng-repeat="article in articles" ng-click="displayArticleDetail(article.id)">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="hexa">
+                        <div class="hex1">
+                            <div class="hex2">
+                                <img src="/media/test-bilder/blue_car.jpg" class="img-fluid" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 article-descriptions">
+                    <label>{{article.title}}</label>
+                    <p>Modellår: {{article.yearModel}}</p>
+                    <p>Miltal: {{article.mileage}} mil</p>
+                    <p>CO2-Utsläpp: 184 g/km</p>
+                    <p>{{article.price}} SEK</p>
+                </div>
+                <div class="col-md-12">
+                    <div class="editor-wrapper">
+                        <div class="icon-circle mr-1" ng-click="editArticle(article.id)">
+                            <img src="/media/myArticles-icons/edit.png" alt="pencil-icon" class="img-fluid" width="20" />
+                        </div>
+                        <div class="icon-circle mr-1" ng-click="removeArticle(article.id)">
+                            <img src="/media/myArticles-icons/trash.png" alt="trash-icon" class="img-fluid" width="20" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 borderLine"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .editor-wrapper {
+        display: flex;
+        float: right;
+        padding-bottom: 0.5em;
+    }
+
+        .editor-wrapper .icon-circle {
+            width: 2em;
+            height: 2em;
+            border-radius: 30px;
+            background-color: #000000;
+            opacity: 0.7;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+            .editor-wrapper .icon-circle img {
+                display: block;
+                margin: auto;
+            }
+
+            .editor-wrapper .icon-circle:hover {
+                opacity: 1;
+            }
+</style>

@@ -1,0 +1,230 @@
+﻿<div class="container">
+    <form>
+        <h1 class="section-title">Annonsinformation</h1>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" placeholder="Title" class="form-control" ng-model="article.title" />
+                            <span ng-if="isTitleEmpty"><small class="text-danger">Title måste fyllas i</small></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Beskrivning</label>
+                            <textarea rows="5" type="text" placeholder="Beskrivning" class="form-control" ng-model="article.description"></textarea>
+                            <span ng-if="isDescriptionEmpty"><small class="text-danger">Beskrivning måste fyllas i</small></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="section-title mt-5">Fordonsinformation</h1>
+        <div class="row">
+            <div class="col-md-6 mt-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Tillverkare</label>
+                            <input type="text" placeholder="Tillverkare" class="form-control" ng-model="article.manuFacturer" />
+                            <span ng-if="isManufacturerEmpty"><small class="text-danger">Tillverkare måste fyllas i</small></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Registreringsnummer</label>
+                            <input type="text" placeholder="Registreringsnummer" class="form-control" ng-model="article.registrationNumber" />
+                            <span ng-if="isRegistrationNumberEmpty"><small class="text-danger">Registreringsnummer måste fyllas i</small></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Mätarställning</label>
+                            <input type="number" placeholder="Mätarställning" class="form-control" ng-model="article.mileage" />
+                            <span ng-if="isMileageEmpty"><small class="text-danger">Mätarställning måste fyllas i</small></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Biltyp</label>
+                            <select class="form-control" ng-options="carType.id as carType.name for carType in carTypes" ng-model="article.carType">
+                                <option value="" selected disabled hidden>Välj biltyp</option>
+                            </select>
+                            <span ng-if="isCartypeEmpty"><small class="text-danger">Du måste välja en biltyp</small></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Model</label>
+                        <input type="text" placeholder="Model" class="form-control" ng-model="article.model" />
+                        <span ng-if="isModelEmpty"><small class="text-danger">Model måste fyllas i</small></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Årsmodell</label>
+                        <input type="number" placeholder="Årsmodell" class="form-control" ng-model="article.yearModel" />
+                        <span ng-if="isYearEmpty"><small class="text-danger">Årsmodell måste fyllas i</small></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Pris (Kr)</label>
+                        <input type="number" placeholder="Pris" class="form-control" ng-model="article.price" />
+                        <span ng-if="isPriceEmpty"><small class="text-danger">Pris måste fyllas i</small></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Växelåda</label>
+                        <select class="form-control" ng-options="gearbox.id as gearbox.name for gearbox in gearboxTypes" ng-model="article.gearbox">
+                            <option value="" selected disabled hidden>Välj växelåda</option>
+                        </select>
+                        <span ng-if="isGearboxEmpty"><small class="text-danger">Du måste välja växelåda</small></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="section-title mt-5">Övrigt</h1>
+        <div class="row">
+            <div class="col-md-6 mt-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Drivmedel</label>
+                            <select class="form-control" ng-options="fuelType.id as fuelType.name for fuelType in fuelTypes" ng-model="article.fuelType">
+                                <option value="" selected disabled hidden>Välj drivmedel</option>
+                            </select>
+                            <span ng-if="isFueltypeEmpty"><small class="text-danger">Du måste välja drivmedel</small></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Färg</label>
+                            <input type="text" placeholder="Färg" class="form-control" ng-model="article.color" />
+                            <span ng-if="isColorEmpty"><small class="text-danger">Färg måste fyllas i</small></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Säten</label>
+                            <input type="number" placeholder="Säten" class="form-control" ng-model="article.seats" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Hästkrafter</label>
+                            <input type="number" placeholder="Hästkrafter" class="form-control" ng-model="article.horsePower" />
+                            <span ng-if="isHorsePowerEmpty"><small class="text-danger">Hästkrafter måste fyllas i</small></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Utsläpp CO2 (g/km)</label>
+                            <input type="text" placeholder="Utsläpp CO2" class="form-control" ng-model="article.emission" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-3">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Vikt</label>
+                        <input type="number" placeholder="Vikt" class="form-control" ng-model="article.weight" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Bilens längd (mm)</label>
+                        <input type="number" placeholder="Längd" class="form-control" ng-model="article.length" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Bilens höjd (mm)</label>
+                        <input type="number" placeholder="Höjd" class="form-control" ng-model="article.height" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Bilens bredd (mm)</label>
+                        <input type="number" placeholder="Bredd" class="form-control" ng-model="article.width" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center mt-5">
+            <div class="col-md-4">
+                <div class="driveWheel-icon-holder" id="FWD" ng-click="setActiveDriveWheel($event)">
+                    <p ng-click="$event.stopPropagation()">Framhjulsdriven</p>
+                    <img src="/media/drivewheels-icons/FrontWheelDrive.png" class="img-fluid" ng-click="$event.stopPropagation()" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="driveWheel-icon-holder" id="AWD" ng-click="setActiveDriveWheel($event)">
+                    <p ng-click="$event.stopPropagation()">Fyrhjulsdriven</p>
+                    <img src="/media/drivewheels-icons/AllWheelDrive.png" class="img-fluid" ng-click="$event.stopPropagation()" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="driveWheel-icon-holder" id="RWD" ng-click="setActiveDriveWheel($event)">
+                    <p ng-click="$event.stopPropagation()">Bakhjulsdriven</p>
+                    <img src="/media/drivewheels-icons/BackWheelDrive.png" class="img-fluid" ng-click="$event.stopPropagation()" />
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5 pb-5">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="file" id="imageUpload" name="file" onchange="angular.element(this).scope().uploadImage()" style="display: none;" />
+                    <div class="image-uploadBorder" ng-click="triggerInputFile()">
+                        <p>Ladda upp minst 10 bilder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-5 pb-5 text-center">
+            <button class="form-sumbit-btn w-25" ng-click="updateArticle()">Updatera annons</button>
+        </div>
+    </form>
+</div>
+
+
+<style>
+    .container {
+        padding-left: 5em;
+        padding-right: 5em;
+    }
+
+    .section-title {
+        font-size: 15px;
+        font-family: Lato;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .form-group label, .form-group span {
+        margin-left: .5em;
+    }
+
+    .driveWheel-icon-holder {
+        cursor: pointer;
+        border-radius: 20px;
+        background-color: rgba(39, 50, 55, 0.05);
+    }
+
+    .driveWheel-icon-holder-active {
+        border: 2px solid #f5842c;
+        background-color: rgba(39, 50, 55, 0.05);
+    }
+
+    .image-uploadBorder {
+        width: 350px;
+    }
+</style>

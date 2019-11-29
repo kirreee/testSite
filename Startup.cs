@@ -16,6 +16,7 @@ using Bilect.DAL.Models;
 using Bilect.Services.Helpers;
 using Bilect.Services.Interfaces;
 using Bilect.Services.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace Bilect
 {
@@ -57,7 +58,12 @@ namespace Bilect
             //Services
             services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<INewsService, NewsService>();
+            services.AddTransient<IMailService, MailService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            //Helpers
+            services.AddTransient<UserHelper, UserHelper>();
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,13 +97,13 @@ namespace Bilect
             });
 
             //Creating user roles
-            var user = new UserHelper(serviceProvider);
-            Task.WaitAll(user.CreateRoles());
+            //var user = new UserHelper(serviceProvider);
+            //Task.WaitAll(user.CreateRoles());
 
             //Creating admin user
-            var Email = Configuration.GetSection("AdminSettings")["UserEmail"];
-            var Password = Configuration.GetSection("AdminSettings")["UserPassword"];
-            Task.WaitAll(user.CreateSuperAdmin(Email, Password));
+            //var Email = Configuration.GetSection("AdminSettings")["UserEmail"];
+            //var Password = Configuration.GetSection("AdminSettings")["UserPassword"];
+            //Task.WaitAll(user.CreateSuperAdmin(Email, Password));
 
         }
     }

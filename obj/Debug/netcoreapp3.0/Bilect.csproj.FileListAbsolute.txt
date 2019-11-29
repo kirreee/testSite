@@ -429,3 +429,5 @@ D:\Projects\Bilect\Bilect\obj\Debug\netcoreapp3.0\Bilect.MvcApplicationPartsAsse
 D:\Projects\Bilect\Bilect\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
 D:\Projects\Bilect\Bilect\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
 D:\Projects\Bilect\Bilect\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\ForgotPassword.cshtml.g.cs
+D:\Projects\Bilect\Bilect\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
+D:\Projects\Bilect\Bilect\obj\Debug\netcoreapp3.0\Razor\Areas\Identity\Pages\Account\_StatusMessage.cshtml.g.cs

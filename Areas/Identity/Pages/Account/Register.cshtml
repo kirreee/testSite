@@ -13,8 +13,12 @@
             <div class="form-holder">
                 <h1 class="text-uppercase form-title text-center pb-2 pt-2">Registrera dig</h1>
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <div class="errorMessages">
+                        <span class="text-danger">@ViewData["emailSenderMsg"]</span>
+                        <span class="text-danger">@ViewData["registerMsg"]</span>
+                    </div>
                     <div class="form-group">
-                        <input asp-for="Input.Name" class="form-control" placeholder="Fullständiga namn"  />
+                        <input asp-for="Input.Name" class="form-control" placeholder="Fullständiga namn" />
                         <span asp-validation-for="Input.Name" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -56,6 +60,17 @@
     </div>
 </div>
 
+<style>
+    .errorMessages{
+        display:grid;
+        padding-top:1rem;
+        padding-bottom:1rem;
+    }
+
+    .errorMessages span{
+        font-size:0.9rem;
+    }
+</style>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

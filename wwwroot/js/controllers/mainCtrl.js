@@ -9,16 +9,6 @@
         $(event.currentTarget).addClass('search-box-big');
     };
 
-    //Show link title on mouseover
-    $scope.showLinkTxt = function (event) {
-        $(event.currentTarget.firstChild).siblings('.link-title').show(200);
-    };
-
-    //Hide link title on mouseleave
-    $scope.hideLinkText = function (event) {
-        $(event.currentTarget.firstChild).siblings('.link-title').hide();
-    };
-
 
     //Focus on car:hover in hexagonGridList
     $scope.focusHexagon = function(event) {
@@ -28,7 +18,7 @@
     };
 
     //Unfocus car on ul:unhover in hexagonGridList
-    $scope.unfocusHexaong = function() {
+    $scope.unfocusHexagon = function() {
         $('.img-hex').removeClass('img-hex-opcaityLow');
     };
 
@@ -37,7 +27,7 @@
     $scope.openAdvanceSearchSettings = function () {
         $('#advance-search-btn').hide();
         $('#advanceSearch-content').fadeIn(500);
-        $('#list-of-cars').addClass('list-of-cars-hidden');
+        $('#list-of-cars').hide();
     };
 
 

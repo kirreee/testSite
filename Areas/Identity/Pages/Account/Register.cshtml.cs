@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Bilect.Services.Interfaces;
 
 namespace Bilect.Areas.Identity.Pages.Account
 {
@@ -23,18 +24,21 @@ namespace Bilect.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-       
+        private readonly IMailService _mailService;
+
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            ILogger<RegisterModel> logger
+            ILogger<RegisterModel> logger,
+            IMailService mailService
             )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-          
+            _mailService = mailService;
+
         }
 
         [BindProperty]
@@ -63,20 +67,20 @@ namespace Bilect.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
             [Required(ErrorMessage = "Namn måste fyllas i")]
             public string Name { get; set; }
-           
+
             [Required(ErrorMessage = "Telefonnummer måste fyllas i")]
             [Phone(ErrorMessage = "Telfonummret är inte giltig")]
             public string PhoneNumber { get; set; }
-          
+
             [Required(ErrorMessage = "Adress måste fyllas i")]
             public string Address { get; set; }
-          
+
             [Required(ErrorMessage = "Postnummer måste fyllas i")]
             public string ZipCode { get; set; }
-           
+
             [Required(ErrorMessage = "Stad måste fyllas i")]
             public string City { get; set; }
-          
+
             public string Description { get; set; }
         }
 
@@ -89,7 +93,9 @@ namespace Bilect.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            bool isEmailSent = false;
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser
@@ -102,7 +108,7 @@ namespace Bilect.Areas.Identity.Pages.Account
                     ZipCode = Input.ZipCode,
                     City = Input.City
                 };
-              
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -110,15 +116,23 @@ namespace Bilect.Areas.Identity.Pages.Account
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,
                         values: new { area = "Identity", userId = user.Id, code = code },
                         protocol: Request.Scheme);
 
-                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    string emailTo = user.Email;
+                    string userName = user.UserName;
 
+                    isEmailSent = _mailService.SendVerficationCode(callbackUrl, emailTo, userName);
+                    if (!isEmailSent)
+                    {
+                        ViewData["emailSenderMsg"] = "-" + "Failed to send verification code";
+                        return Page();
+                    }
+                    
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email });
@@ -129,8 +143,10 @@ namespace Bilect.Areas.Identity.Pages.Account
                         return LocalRedirect(returnUrl);
                     }
                 }
+                
                 foreach (var error in result.Errors)
                 {
+                    ViewData["registerMsg"] = "-" + error.Description;
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }

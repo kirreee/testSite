@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app="bilectApp">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 
 </head>
-<body ng-controller="mainCtrl">
+<body>
 
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
@@ -29,24 +29,36 @@
                     <div class="col-md-12">
                         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item" ng-mouseover="showLinkTxt($event)" ng-mouseleave="hideLinkText($event)">
+                                <li class="nav-item">
                                     <span class="link-title">Skapa anons</span>
-                                    <img src="~/media/navigation-icons/add-article.png" class="img-fluid" />
+                                    <a href="#!/addArticle">
+                                        <img src="~/media/navigation-icons/add-article.png" class="img-fluid" />
+                                    </a>
                                 </li>
-                                <li class="nav-item" ng-mouseover="showLinkTxt($event)" ng-mouseleave="hideLinkText($event)">
+                                <li class="nav-item">
                                     <span class="link-title">Nyheter</span>
                                     <a href="#!/news">
                                         <img src="~/media/navigation-icons/news.png" class="img-fluid" />
                                     </a>
                                 </li>
-                                <li class="nav-item" ng-mouseover="showLinkTxt($event)" ng-mouseleave="hideLinkText($event)">
+                                <li class="nav-item">
                                     <span class="link-title">Mina anonser</span>
-                                    <img src="~/media/navigation-icons/my-articles.png" class="img-fluid" />
+                                    <a href="#!/myArticles">
+                                        <img src="~/media/navigation-icons/my-articles.png" class="img-fluid" />
+                                    </a>
                                 </li>
-                                <li class="nav-item" ng-mouseover="showLinkTxt($event)" ng-mouseleave="hideLinkText($event)">
-                                    <span class="link-title">Min profil</span>
-                                    <img src="~/media/navigation-icons/my-profile.png" class="img-fluid" />
+                                <li class="nav-item">
+                                    <a asp-area="Identity" asp-page="/Account/Login">
+                                        <span class="link-title">Min profil</span>
+                                        <img src="~/media/navigation-icons/my-profile.png" class="img-fluid" />
+                                    </a>
                                 </li>
+                                @*<li class="nav-item">
+                                        <a asp-area="Identity" asp-page="/Account/Logout">
+                                            <span class="link-title">Logout</span>
+                                            <img src="~/media/navigation-icons/my-profile.png" class="img-fluid" />
+                                        </a>
+                                    </li>*@
                             </ul>
                         </div>
                     </div>
@@ -55,7 +67,7 @@
         </nav>
     </header>
 
-    <div class="container-fluid p-0 m-0" ng-app="app" ng-view>
+    <div class="container-fluid p-0 m-0">
         @RenderBody()
     </div>
 
@@ -78,6 +90,8 @@
     <script src="~/js/controllers/mainCtrl.js"></script>
     <script src="~/js/controllers/articleCtrls/articleCtrl.js"></script>
     <script src="~/js/controllers/articleCtrls/addArticleCtrl.js"></script>
+    <script src="~/js/controllers/articleCtrls/myArticleCtrl.js"></script>
+    <script src="~/js/controllers/articleCtrls/editArticleCtrl.js"></script>
     <script src="~/js/controllers/newsCtrls/newsCtrl.js"></script>
     <script src="~/js/controllers/newsCtrls/addNewsCtrl.js"></script>
     <script src="~/js/controllers/newsCtrls/editNewsCtrl.js"></script>

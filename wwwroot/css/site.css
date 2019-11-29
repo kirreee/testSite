@@ -1,5 +1,27 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
+:root {
+    --lato: 'Lato', sans-serif;
+}
+
+.blur {
+    filter: blur(5em);
+    transition: 1s;
+}
+
+
+/* SweetAlert-2 styles
+-------------------------------------------------- */
+.swal2-popup {
+    border-radius: 35px !important;
+    font-family: var(--lato);
+}
+
+
+
+
+
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -126,10 +148,86 @@ body {
 }
 
 
+/* Article detail view styles
+-------------------------------------------------- */
+#articleDetails-container {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    min-height: 100vh;
+    display: none;
+    background-color: #000000c7;
+    overflow-y: scroll;
+}
+
+    #articleDetails-container .hexa-img-holder {
+        width: 828px;
+        height: 458px;
+    }
+
+.articleDetail .borderUnderLine {
+    border-bottom: solid 1px #fff;
+    display: inline-block;
+}
+
+.borderUnderLine h1, .borderUnderLine h2 {
+    color: #fff;
+    font-family: var(--lato);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.triangles-wrapper {
+    position: absolute;
+    display: flex;
+    left: 45.5em;
+    top: 27.1em;
+}
+
+.triangle-img {
+    width: 150px;
+    height: 118px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.triangles-wrapper .tr-2 {
+    -webkit-transform: rotate(-180deg);
+    position: absolute;
+    left: 4.7em;
+}
+
+.triangles-wrapper .tri-4 {
+    left: 13.7em;
+}
+
+.triangles-wrapper .tri-5 {
+    position: absolute;
+    left: 18.4em;
+}
+
+#close-view-wrapper {
+    position: absolute;
+    bottom: 1em;
+    left: 0;
+    right: 0;
+}
+
+    #close-view-wrapper img {
+        display: block;
+        margin: auto;
+        cursor:pointer;
+    }
+
+
+
 
 /* Advance search options settings styles
 -------------------------------------------------- */
-
 #sliderPicker-holder {
     margin-top: 8em;
 }
@@ -256,10 +354,26 @@ body {
 }
 
 
-.img-hex-opcaityLow{
-    opacity:0.4;
-    transition:.5s;
+.img-hex-opcaityLow {
+    opacity: 0.4;
+    transition: .5s;
 }
+
+
+/* Toggle buttons styles
+-------------------------------------------------- */
+.toggle-holder {
+    display: inline-grid;
+}
+
+    .toggle-holder div {
+        padding-top: 5px;
+    }
+
+    .toggle-holder > div:nth-of-type(1),
+    .toggle-holder > div:nth-of-type(3) {
+        cursor: pointer;
+    }
 
 
 
@@ -275,7 +389,7 @@ body {
 }
 
 .form-title {
-    font-family: 'Lato', sans-serif;
+    font-family: var(--lato);
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
@@ -342,18 +456,14 @@ body {
 
 
 
-
-
-
-/* Hexagon styles
+/* Hexagon grid list styles
 -------------------------------------------------- */
-.list-of-cars-hidden {
-    display: none;
+.list-of-cars-show {
+    display: block;
 }
 
-
 #hexagon-grid-holder {
-    margin-top: 5em;
+    display: none;
 }
 
 #hexGrid {
@@ -602,3 +712,77 @@ body {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+
+
+
+/* Hexagon normal grid list styles
+-------------------------------------------------- */
+
+#grid-list-holder {
+    cursor: pointer;
+}
+
+.article-descriptions {
+    padding-top: 1em;
+}
+
+    .article-descriptions label {
+        font-weight: bold;
+        font-family: var(--lato);
+        font-size: 1.25rem;
+    }
+
+    .article-descriptions p {
+        font-family: var(--lato);
+        font-size: 1.2rem;
+        padding: 0;
+        margin: 0;
+    }
+
+        .article-descriptions p:nth-last-child(-n+1) {
+            font-family: var(--lato);
+            font-size: 1.25rem;
+            float: right;
+            font-weight: bold;
+            margin-top: 2em;
+        }
+
+.borderLine {
+    border-bottom: solid 1px black;
+    opacity: 0.2;
+}
+
+
+.hexa, .hexa div {
+    margin: 0 auto;
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+}
+
+.hexa {
+    width: 400px;
+    height: 225px;
+}
+
+    .hexa div {
+        width: 100%;
+        height: 100%;
+    }
+
+.hexa {
+    transform: rotate(120deg);
+}
+
+.hex1 {
+    transform: rotate(-60deg);
+}
+
+.hex2 {
+    transform: rotate(-60deg);
+}
+
+
+/* My article view styles
+-------------------------------------------------- */

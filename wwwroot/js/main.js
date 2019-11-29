@@ -1,4 +1,8 @@
-﻿var app = angular.module("bilectApp", ["ngRoute"]).run(function () { });
+﻿var app = angular.module("bilectApp", ["ngRoute"]).run(function () {
+    //Angular intial 
+});
+
+
 
 
 
@@ -15,6 +19,14 @@ app.config(["$routeProvider",
             when("/addArticle", {
                 templateUrl: "/templates/addArticle.html",
                 controller: "addArticleCtrl"
+            }).
+            when("/myArticles", {
+                templateUrl: "/templates/myArticles.html",
+                controller: "myArticlesCtrl"
+            }).
+            when("/editArticles/:id", {
+                templateUrl: "/templates/editArticle.html",
+                controller: "editArticleCtrl"
             }).
             when("/news", {
                 templateUrl: "/templates/news.html",

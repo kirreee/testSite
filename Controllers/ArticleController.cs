@@ -7,7 +7,9 @@ using Bilect.DAL.HelperModels;
 using Bilect.DAL.ViewModels;
 using Bilect.Services.Helpers;
 using Bilect.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bilect.Controllers
@@ -17,7 +19,7 @@ namespace Bilect.Controllers
     public class ArticleController : ControllerBase
     {
         private readonly IArticleService _articleService;
-
+        
         public ArticleController(IArticleService articleService)
         {
             _articleService = articleService;
@@ -36,7 +38,7 @@ namespace Bilect.Controllers
             return Ok(enumViewModel);
         }
 
-        [HttpGet,Route("GetArticles")]
+        [HttpGet, Route("GetArticles")]
         public IActionResult GetArticles()
         {
             List<ArticleViewModel> articlesViewModel = _articleService.GetArticles();
@@ -47,6 +49,34 @@ namespace Bilect.Controllers
         public IActionResult AddArticle(AddArticleDto addArticleDto)
         {
             OperationResult operationResult = _articleService.AddArticle(addArticleDto);
+            return Ok(operationResult);
+        }
+        
+        [HttpGet, Route("GetMyArticles")]
+        public IActionResult GetMyArticles()
+        {
+            List<ArticleViewModel> viewModel = _articleService.GetMyArticles();
+            return Ok(viewModel);
+        }
+
+        [HttpGet, Route("GetArticleById/{articleId}")]
+        public IActionResult GetArticleById(int articleId)
+        {
+            ArticleEditViewModel articleViewModel = _articleService.GetArticleById(articleId);
+            return Ok(articleViewModel);
+        }
+
+        [HttpPost, Route("UpdateArticle/{articleId}")]
+        public IActionResult UpdateArticle(AddArticleDto addArticleDto, int articleId)
+        {
+            OperationResult operationResult = _articleService.UpdateArticle(addArticleDto, articleId);
+            return Ok(operationResult);
+        }
+
+        [HttpDelete, Route("DeleteArticle/{articleId}")]
+        public IActionResult RemoveArticle(int articleId)
+        {
+            OperationResult operationResult = _articleService.RemoveArticle(articleId);
             return Ok(operationResult);
         }
     }
